@@ -65,11 +65,12 @@ class Sample(object):
             self.loci_counts[locus] = count
 
     def find_count_in_row(self, row: pd.Series) -> int:
-        counts = [entry.split(":") for entry in row["counts"].split(",")]
-        for sample, count in counts:
-            if sample == self.name:
-                return float(count)
-        return 0
+        #counts = [entry.split(":") for entry in row["counts"].split(",")]
+        #for sample, count in counts:
+        #    if sample == self.name:
+        #        return float(count)
+        #return 0
+        return row["num_anc_irrs"]
 
     def save_to_file(self, path: Path) -> None:
         with open(path, "wb") as f:
